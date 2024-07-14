@@ -14,4 +14,5 @@ uses: serenity4/julia-lavapipe@latest
 uses: serenity4/julia-lavapipe@latest
 with:
   debug: "true" # defaults to "false"
+  validation: "false" # defaults to "true"
 ```
