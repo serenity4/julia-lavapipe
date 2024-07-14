@@ -1,4 +1,4 @@
-name: 'lavapipe'
+name: 'julia-lavapipe'
 description: 'Install the Mesa Lavapipe Vulkan driver'
 inputs:
   debug:
