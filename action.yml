@@ -19,4 +19,3 @@ runs:
         if [ "${{ inputs.debug }}" == "true" ]; then
           echo "VK_LOADER_DEBUG=all" >> $GITHUB_ENV
         fi;
-        echo "DEVICE_NOSELECT=1" >> $GITHUB_ENV
