@@ -12,21 +12,21 @@ inputs:
 runs:
   using: "composite"
   steps:
-    if: ${{ inputs.validation == "true" }}
-    uses: awalsh128/cache-apt-pkgs-action@latest
-    name: Install Lavapipe (with validation layers)
-    with:
-      packages: mesa-vulkan-drivers libvulkan1 vulkan-tools vulkan-validationlayers
-      version: 1.0
-    if: ${{ inputs.validation == "true" }}
-    uses: awalsh128/cache-apt-pkgs-action@latest
-    name: Install Lavapipe
-    with:
-      packages: mesa-vulkan-drivers libvulkan1 vulkan-tools
-      version: 1.0
-  - name: "Set debug environment variables (optional)"
-    shell: bash
-    run: |
-      if [ "${{ inputs.debug }}" == "true" ]; then
-        echo "VK_LOADER_DEBUG=all" >> $GITHUB_ENV
-      fi;
+    - uses: awalsh128/cache-apt-pkgs-action@latest
+      if: "${{ inputs.validation == 'true' }}"
+      name: Install Lavapipe (with validation layers)
+      with:
+        packages: mesa-vulkan-drivers libvulkan1 vulkan-tools vulkan-validationlayers
+        version: 1.0
+    - uses: awalsh128/cache-apt-pkgs-action@latest
+      if: "${{ inputs.validation != 'true' }}"
+      name: Install Lavapipe
+      with:
+        packages: mesa-vulkan-drivers libvulkan1 vulkan-tools
+        version: 1.0
+    - name: "Set debug environment variables (optional)"
+      shell: bash
+      run: |
+        if [ "${{ inputs.debug }}" == "true" ]; then
+          echo "VK_LOADER_DEBUG=all" >> $GITHUB_ENV
+        fi;
