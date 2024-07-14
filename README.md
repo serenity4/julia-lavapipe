@@ -16,3 +16,9 @@ with:
   debug: "true" # defaults to "false"
   validation: "false" # defaults to "true"
 ```
+
+## Contributions
+
+We warmly welcome contributions, and in particular to add support to Windows/MacOS and other Linux distributions.
+
+For Windows, we could probably use https://github.com/pal1000/mesa-dist-win and extract the files in the right places to have the driver detected by a Vulkan loader.
