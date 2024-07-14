@@ -12,13 +12,13 @@ inputs:
 runs:
   using: "composite"
   steps:
-    if: inputs.validation == "true"
+    if: ${{ inputs.validation == "true" }}
     uses: awalsh128/cache-apt-pkgs-action@latest
     name: Install Lavapipe (with validation layers)
     with:
       packages: mesa-vulkan-drivers libvulkan1 vulkan-tools vulkan-validationlayers
       version: 1.0
-    if: inputs.validation == "true"
+    if: ${{ inputs.validation == "true" }}
     uses: awalsh128/cache-apt-pkgs-action@latest
     name: Install Lavapipe
     with:
